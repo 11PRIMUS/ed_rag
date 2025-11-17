@@ -1,0 +1,241 @@
+.playlist {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.playlist__player {
+  background: rgba(15, 23, 42, 0.92);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  color: #e2e8f0;
+  box-shadow: var(--shadow-md);
+}
+
+.playlist__player-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.playlist__eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(226, 232, 240, 0.7);
+  margin: 0 0 4px 0;
+}
+
+.playlist__player-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.playlist__meta {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.6);
+}
+
+.playlist__toggles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle__slider {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  background: rgba(226, 232, 240, 0.2);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.toggle__slider::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.toggle input:checked + .toggle__slider {
+  background: rgba(129, 140, 248, 0.65);
+}
+
+.toggle input:checked + .toggle__slider::after {
+  transform: translateX(22px);
+}
+
+.playlist__video-wrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 60px -26px rgba(8, 47, 73, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.playlist__video {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+.playlist__sidebar {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+.playlist--course {
+  position: relative;
+}
+
+.playlist__player--course {
+  position: relative;
+}
+
+.playlist__video-wrapper--course {
+  border-radius: 14px;
+  overflow: hidden;
+  height: 420px;
+}
+
+.playlist__sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.playlist__sidebar-header h4 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.playlist__sidebar--course {
+  position: relative;
+  min-width: 320px;
+}
+
+.course-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-bar {
+  height: 10px;
+  background: linear-gradient(90deg, var(--accent) 0%, #22d3ee 100%);
+  border-radius: 999px;
+}
+
+.progress-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.playlist__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.playlist-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(99, 102, 241, 0.04);
+  border: 1px solid rgba(99, 102, 241, 0.06);
+  color: var(--text-secondary);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.playlist-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.playlist-item.is-active {
+  background: rgba(99, 102, 241, 0.16);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: var(--text-primary);
+}
+
+.playlist-item__index {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.playlist-item.is-active .playlist-item__index {
+  color: #0f172a;
+}
+
+.playlist-item__title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.playlist-item__length {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.playlist-item__status {
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+.playlist-item.is-active .playlist-item__status {
+  color: #0f172a;
+}
+
+@media (max-width: 960px) {
+  .playlist {
+    grid-template-columns: 1fr;
+  }
+
+  .playlist__sidebar {
+    flex-direction: column;
+  }
+}

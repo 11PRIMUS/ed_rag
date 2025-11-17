@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pydantic
+easyocr
+pdf2image
+Pillow
+requests
+sentence-transformers
+python-multipart
+numpy
+openai
+python-dotenv
